@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Miftakhul Lutfi Tsani</title>
+    <!-- Font & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-main: #090d16;
+            --bg-surface: #111827;
+            --bg-card: #1f2937;
+            --accent-emerald: #10b981;
+            --accent-glow: rgba(16, 185, 129, 0.15);
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --border-line: #374151;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Fixed Navigation */
+        header {
+            position: fixed;
+            top: 16px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-line);
+            padding: 12px 28px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-brand {
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-brand .badge-dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-emerald);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-emerald);
+        }
+
+        .btn-nav {
+            background: var(--accent-emerald);
+            color: #000000;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .btn-nav:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Split Hero Section */
+        .hero-section {
+            padding: 160px 0 80px 0;
+        }
+
+        .hero-split {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-glow);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--accent-emerald);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero-desc {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: var(--accent-emerald);
+            color: #000000;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-line);
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: border-color 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-emerald);
+        }
+
+        .hero-card-frame {
+            position: relative;
+        }
+
+        .hero-img-box {
+            width: 100%;
+            max-width: 340px;
+            height: 380px;
+            margin: 0 auto;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 2px solid var(--border-line);
+            background: var(--bg-surface);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .status-pill {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-surface);
+            border: 1px solid var(--accent-emerald);
+            padding: 10px 20px;
+            border-radius: 30px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Section Commons */
+        section {
+            padding: 70px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-tag {
+            color: var(--accent-emerald);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        /* Bento Grid Style for About */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 20px;
+        }
+
+        .bento-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-line);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            transition: border-color 0.3s;
+        }
+
+        .bento-card:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .info-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .info-list strong {
+            color: var(--text-primary);
+        }
+
+        /* Timeline UI for Experience */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--border-line);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 20px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-emerald);
+            box-shadow: 0 0 10px var(--accent-emerald);
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--accent-emerald);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .timeline-role {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .timeline-company {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .timeline-duties {
+            padding-left: 18px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .timeline-duties li {
+            margin-bottom: 6px;
+        }
+
+        /* Skill Cards */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-line);
+            padding: 28px;
+            border-radius: var(--radius-lg);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-glow);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: var(--accent-emerald);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border-line);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-line);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-box-item {
+            background: var(--bg-main);
+            border: 1px solid var(--border-line);
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .contact-box-item:hover {
+            border-color: var(--accent-emerald);
+        }
+
+        .contact-box-item i {
+            font-size: 1.3rem;
+            color: var(--accent-emerald);
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-line);
+        }
+
+        @media (max-width: 868px) {
+            .hero-split, .bento-grid, .contact-card {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigasi -->
+    <header>
+        <nav>
+            <div class="nav-brand">
+                <span class="badge-dot"></span> MIFTAKHUL LUTFI T.
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Pengalaman</a></li>
+                <li><a href="#skills">What I Can Do</a></li>
+                <li><a href="#achievements">Achievement</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="btn-nav">Kontak</a>
+        </nav>
+    </header>
+
+    <!-- Split Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-split">
+                <div>
+                    <span class="hero-badge"><i class="fa-solid fa-graduation-cap"></i> Fresh Graduate</span>
+                    <h1 class="hero-title">Miftakhul Lutfi Tsani</h1>
+                    <p class="hero-desc">Lulusan MA Negeri 3 Jombang Jurusan Bahasa yang terampil, efisien, terorganisir, serta memiliki pengalaman operasional produksi dan minat di bidang administrasi.</p>
+                    <div class="hero-btns">
+                        <a href="https://wa.me/628999470705" target="_blank" class="btn-primary">
+                            <i class="fa-brands fa-whatsapp"></i> Hubungi WA
+                        </a>
+                        <a href="#experience" class="btn-secondary">Lihat Pengalaman</a>
+                    </div>
+                </div>
+
+                <div class="hero-card-frame">
+                    <div class="hero-img-box">
+                        <img src="FOTO LUTPI_page-0001.jpg" alt="Foto Profile Miftakhul Lutfi Tsani">
+                    </div>
+                    <div class="status-pill">
+                        <i class="fa-solid fa-briefcase" style="color: var(--accent-emerald);"></i>
+                        <span>MSB Worker @ PT Global Way Indonesia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Profil Diri</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-card">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 12px;">Ringkasan Profil</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 15px;">
+                        Saya merupakan lulusan Madrasah Aliyah Negeri (MAN) 3 Jombang jurusan Bahasa. Menguasai keterampilan dasar dalam penggunaan dasar Microsoft Office serta memiliki kemampuan komunikasi yang baik, bekerja secara individu maupun tim. Berkomitmen memberikan kontribusi terbaik melalui etos kerja tinggi dan sikap profesional.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Kerja Cepat</span>
+                        <span class="tag">Efisien</span>
+                        <span class="tag">Terorganisir</span>
+                        <span class="tag">Komunikasi Baik</span>
+                    </div>
+                </div>
+
+                <div class="bento-card">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 12px;">Informasi Pendidikan</h3>
+                    <ul class="info-list">
+                        <li><strong>Instansi:</strong> MA Negeri 3 Jombang</li>
+                        <li><strong>Jurusan:</strong> Bahasa (2022 - 2025)</li>
+                        <li><strong>Fokus Studi:</strong> Keterampilan bahasa, dan komunikasi yang baik.</li>
+                        <li><strong>Domisili:</strong> Wonokromo, Surabaya</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Rekam Pengalaman Kerja</span>
+                <h2 class="section-title">Work Experience</h2>
+            </div>
+
+            <div class="bento-card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2025 - 2026</div>
+                        <div class="timeline-role">Operator Ball Printing | MSB Worker</div>
+                        <div class="timeline-company">PT Global Way Indonesia</div>
+                        
+                        <ul class="timeline-duties">
+                            <li>Menjalankan proses produksi sesuai dengan standar operasional, khususnya dalam bagian MSB (Multi Skill Base).</li>
+                            <li>Melakukan pengecekan hasil cetak (printing) dengan teliti dan efisien.</li>
+                            <li>Bertanggung jawab menjaga kebersihan dan keamanan area kerja.</li>
+                            <li>Bekerja sama dengan tim untuk memastikan target produksi harian tercapai.</li>
+                            <li>Menerapkan standar kualitas dan ketepatan waktu dalam setiap proses kerja.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Can Do Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Keahlian & Layanan</span>
+                <h2 class="section-title">What I Can Do</h2>
+            </div>
+
+            <div class="grid-3">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-file-invoice"></i></div>
+                    <h3>Administrasi & Office</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px;">
+                        Penguasaan dasar Microsoft Office untuk keperluan penyusunan dokumen, laporan, dan pengelolaan data administrasi.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">MS Office</span>
+                        <span class="tag">Administrasi</span>
+                        <span class="tag">Dokumentasi</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-industry"></i></div>
+                    <h3>Operasional & Cetak</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px;">
+                        Pengalaman operasional cetak (ball printing), pengecekan kualitas produk (quality check), dan pelaksanaan SOP industri.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">MSB Worker</span>
+                        <span class="tag">Quality Inspection</span>
+                        <span class="tag">Target Orientasi</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h3>Soft Skills Utama</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px;">
+                        Komunikasi interpersoal yang efisien, penyelesaian masalah (problem-solving), disiplin, dan kerja sama tim.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Problem Solving</span>
+                        <span class="tag">Teamwork</span>
+                        <span class="tag">Kedisiplinan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Section -->
+    <section id="achievements">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Pencapaian Utama</span>
+                <h2 class="section-title">Achievement</h2>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-card">
+                    <div style="font-size: 0.8rem; color: var(--accent-emerald); font-weight: 700; margin-bottom: 6px;">PENCAPAIAN KERJA</div>
+                    <h3 style="margin-bottom: 10px;">Pencapaian Target Produksi Harian</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                        Konsisten menjaga efisiensi dan standar kualitas cetak di PT Global Way Indonesia, sehingga selalu berhasil mendukung pencapaian target produksi harian tim.
+                    </p>
+                </div>
+
+                <div class="bento-card">
+                    <div style="font-size: 0.8rem; color: var(--accent-emerald); font-weight: 700; margin-bottom: 6px;">PENCAPAIAN AKADEMIK</div>
+                    <h3 style="margin-bottom: 10px;">Lulusan MAN 3 Jombang</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                        Menyelesaikan jenjang Madrasah Aliyah Jurusan Bahasa dengan baik, memiliki landasan keterampilan berbahasa dan komunikasi yang baik.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Hubungi Saya</span>
+                <h2 class="section-title">Contact</h2>
+            </div>
+
+            <div class="contact-card">
+                <div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 12px;">Mari Terhubung!</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">Terbuka untuk kesempatan karir di bidang Administrasi, Operasional Industri, maupun posisi profesional lainnya.</p>
+                    
+                    <a href="mailto:miftakhullutfitsani@gmail.com" class="btn-primary">
+                        <i class="fa-solid fa-paper-plane"></i> Kirim Pesan Email
+                    </a>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                    <a href="mailto:miftakhullutfitsani@gmail.com" class="contact-box-item" target="_blank">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--text-secondary);">EMAIL</div>
+                            <div style="font-weight: 700; font-size: 0.95rem;">miftakhullutfitsani30@gmail.com</div>
+                        </div>
+                    </a>
+
+                    <a href="https://wa.me/628999470705" class="contact-box-item" target="_blank">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--text-secondary);">TELEPON / WA</div>
+                            <div style="font-weight: 700; font-size: 0.95rem;">0899-9470-705</div>
+                        </div>
+                    </a>
+
+                    <div class="contact-box-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--text-secondary);">LOKASI</div>
+                            <div style="font-weight: 700; font-size: 0.95rem;">Wonokromo, Surabaya</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Miftakhul Lutfi Tsani. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
